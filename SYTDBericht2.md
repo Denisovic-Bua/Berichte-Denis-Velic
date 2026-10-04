@@ -1,68 +1,62 @@
-# Übung 02 - Standortvernetzung von zwei Standorten
+# Arbeitsbericht – Übung 02 Standortvernetzung
 
 **Klasse:** 4AHITS  
+**Thema:** Standortvernetzung von 2 Standorten  
 **Verfasser:** Denis Velic  
-**Übungsdatum:**  
-**Abgabedatum:**  
+**Datum:**  
 
 ---
 
 ## 1. Aufgabenstellung
 
-Ziel dieser Laborübung war es, zwei voneinander getrennte LAN-Netzwerke über eine WAN-Verbindung miteinander zu verbinden.
+In dieser Übung war die Aufgabe, zwei verschiedene Standorte über zwei Router miteinander zu verbinden.
 
-Dabei wurden die Standorte **Braunau** und **Schärding** jeweils mit einem Router und einem Switch ausgestattet.
+Die beiden Standorte sind:
 
-Die beiden Router wurden über das Netzwerk `10.0.0.0/30` miteinander verbunden.
+- Braunau
+- Schärding
 
-Nach der Konfiguration sollten alle Netzwerkgeräte untereinander erreichbar sein. Zusätzlich mussten statische Routen eingerichtet werden, damit die Router auch die jeweils entfernten LAN-Netzwerke erreichen können.
+An jedem Standort gibt es jeweils einen PC, einen Switch und einen Router.  
+Die beiden Router werden direkt miteinander verbunden.
 
----
+Das Ziel war, dass sich am Ende alle Geräte untereinander erreichen können und besonders PC-A zu PC-B pingen kann.
 
-## 2. Topologie
-
-Die verwendete Netzwerktopologie besteht aus folgenden Geräten:
-
-- 2 × Cisco 2811 Router
-- 2 × Cisco Catalyst 2960 Switch
-- 2 × PCs
-
-Die logische Struktur des Netzwerkes ist:
+Die verwendete Topologie sieht ungefähr so aus:
 
 ```text
-                           WAN 10.0.0.0/30
-                  10.0.0.1              10.0.0.2
-                      │                      │
-PC-A ── S-Br1 ── R-Br1 ───────────────── R-Sd1 ── S-Sd1 ── PC-B
-        Braunau                                  Schärding
-
-LAN Braunau:     192.168.1.0/24
-LAN Schärding:   192.168.2.0/24
+PC-A --- S-Br1 --- R-Br1 ===== R-Sd1 --- S-Sd1 --- PC-B
+        Braunau                    Schärding
 ```
 
----
+--- 
 
-## 3. IP-Adressierung
+## 2. IP-Adressierung
 
-Für die beiden lokalen Netzwerke wurde jeweils ein `/24`-Netz verwendet.
+Für beide Standorte wurden unterschiedliche Netzwerke verwendet.
 
-Ein `/24` besitzt die Subnetzmaske:
+Braunau verwendet das Netz:
 
 ```text
-255.255.255.0
+192.168.1.0/24
 ```
 
-Für die direkte Verbindung zwischen den beiden Routern wurde ein `/30`-Netz verwendet.
+Schärding verwendet:
 
 ```text
-/30 = 255.255.255.252
+192.168.2.0/24
 ```
 
-Ein `/30`-Netz eignet sich für eine Punkt-zu-Punkt-Verbindung zwischen zwei Routern, da zwei verwendbare Hostadressen zur Verfügung stehen.
+Für die Verbindung zwischen den beiden Routern wurde das Netz
+
+```text
+10.0.0.0/30
+```
+
+verwendet.
 
 ### Adresstabelle
 
-| Gerät | Interface | IP-Adresse | Subnetzmaske | Default Gateway |
+| Gerät | Interface | IP-Adresse | Subnetzmaske | Gateway |
 |---|---|---|---|---|
 | R-Br1 | Fa0/0 | 192.168.1.1 | 255.255.255.0 | - |
 | R-Br1 | Fa0/1 | 10.0.0.1 | 255.255.255.252 | - |
@@ -73,244 +67,33 @@ Ein `/30`-Netz eignet sich für eine Punkt-zu-Punkt-Verbindung zwischen zwei Rou
 | PC-A | NIC | 192.168.1.111 | 255.255.255.0 | 192.168.1.1 |
 | PC-B | NIC | 192.168.2.111 | 255.255.255.0 | 192.168.2.1 |
 
-### WAN-Netzwerk
-
-Für die Verbindung zwischen den Routern wurde das Netzwerk `10.0.0.0/30` verwendet.
-
-| Adresse | Funktion |
-|---|---|
-| 10.0.0.0 | Netzwerkadresse |
-| 10.0.0.1 | R-Br1 |
-| 10.0.0.2 | R-Sd1 |
-| 10.0.0.3 | Broadcastadresse |
-
 ---
 
-## 4. Grundkonfiguration
+## 3. Verkabelung
 
-Auf allen Cisco-Geräten wurden zunächst die geforderten Passwörter konfiguriert.
+Zuerst wurden alle Geräte wie in der Topologie miteinander verbunden.
 
-Das Console- und VTY-Passwort lautet:
-
-```text
-cisco
-```
-
-Das Enable-Secret lautet:
+Die Verbindung war:
 
 ```text
-class
+PC-A -> S-Br1 -> R-Br1 -> R-Sd1 -> S-Sd1 -> PC-B
 ```
 
-Beispiel:
+Nach dem Verbinden waren manche Ports zuerst noch rot, weil die Router Interfaces standardmäßig deaktiviert sind.
 
-```cisco
-enable
-configure terminal
-
-enable secret class
-
-line console 0
- password cisco
- login
- exit
-
-line vty 0 4
- password cisco
- login
- exit
-```
-
-Mit `enable secret` wird das Passwort für den privilegierten EXEC-Modus festgelegt.
-
-Die Konfiguration unter `line console 0` schützt den lokalen Konsolenzugang.
-
-Die VTY-Lines werden für Remote-Zugriffe auf das Gerät verwendet.
-
----
-
-## 5. Konfiguration Router R-Br1
-
-Zunächst wurde der Hostname des Routers gesetzt.
-
-```cisco
-enable
-configure terminal
-hostname R-Br1
-```
-
-Danach wurden die benötigten Passwörter eingerichtet.
-
-```cisco
-enable secret class
-
-line console 0
- password cisco
- login
- exit
-
-line vty 0 4
- password cisco
- login
- exit
-```
-
-### LAN-Interface
-
-Das Interface FastEthernet0/0 verbindet den Router mit dem LAN am Standort Braunau.
-
-```cisco
-interface FastEthernet0/0
- description LAN-Braunau
- ip address 192.168.1.1 255.255.255.0
- no shutdown
- exit
-```
-
-Mit dem Befehl
+Diese wurden später mit
 
 ```cisco
 no shutdown
 ```
 
-wird das Interface aktiviert.
-
-### WAN-Interface
-
-Das Interface FastEthernet0/1 verbindet R-Br1 mit R-Sd1.
-
-```cisco
-interface FastEthernet0/1
- description WAN-zu-R-Sd1
- ip address 10.0.0.1 255.255.255.252
- no shutdown
- exit
-```
+aktiviert.
 
 ---
 
-## 6. Konfiguration Router R-Sd1
+## 4. Konfiguration von PC-A
 
-Der zweite Router wurde entsprechend konfiguriert.
-
-```cisco
-enable
-configure terminal
-
-hostname R-Sd1
-
-enable secret class
-
-line console 0
- password cisco
- login
- exit
-
-line vty 0 4
- password cisco
- login
- exit
-```
-
-### LAN-Interface
-
-```cisco
-interface FastEthernet0/0
- description LAN-Schaerding
- ip address 192.168.2.1 255.255.255.0
- no shutdown
- exit
-```
-
-### WAN-Interface
-
-```cisco
-interface FastEthernet0/1
- description WAN-zu-R-Br1
- ip address 10.0.0.2 255.255.255.252
- no shutdown
- exit
-```
-
----
-
-## 7. Konfiguration der Switches
-
-Die Switches benötigen eine Management-IP-Adresse.
-
-Diese wurde jeweils auf dem virtuellen Interface VLAN 1 eingerichtet.
-
-### S-Br1
-
-```cisco
-enable
-configure terminal
-
-hostname S-Br1
-
-enable secret class
-
-line console 0
- password cisco
- login
- exit
-
-line vty 0 4
- password cisco
- login
- exit
-
-interface vlan 1
- ip address 192.168.1.2 255.255.255.0
- no shutdown
- exit
-
-ip default-gateway 192.168.1.1
-
-end
-```
-
-Das Default Gateway ist `192.168.1.1`, da dies die Adresse des Routers im LAN Braunau ist.
-
-### S-Sd1
-
-```cisco
-enable
-configure terminal
-
-hostname S-Sd1
-
-enable secret class
-
-line console 0
- password cisco
- login
- exit
-
-line vty 0 4
- password cisco
- login
- exit
-
-interface vlan 1
- ip address 192.168.2.2 255.255.255.0
- no shutdown
- exit
-
-ip default-gateway 192.168.2.1
-
-end
-```
-
-Das Default Gateway des Switches ist der Router R-Sd1 mit der Adresse `192.168.2.1`.
-
----
-
-## 8. Konfiguration der PCs
-
-### PC-A
-
-Auf PC-A wurde folgende IPv4-Konfiguration vorgenommen:
+PC-A wurde mit folgender IP-Adresse konfiguriert:
 
 ```text
 IP-Adresse:       192.168.1.111
@@ -318,9 +101,13 @@ Subnetzmaske:     255.255.255.0
 Default Gateway:  192.168.1.1
 ```
 
-### PC-B
+Der Default Gateway ist die IP-Adresse vom Router R-Br1 auf der LAN Seite.
 
-PC-B wurde folgendermaßen konfiguriert:
+---
+
+## 5. Konfiguration von PC-B
+
+PC-B wurde wie folgt konfiguriert:
 
 ```text
 IP-Adresse:       192.168.2.111
@@ -328,15 +115,147 @@ Subnetzmaske:     255.255.255.0
 Default Gateway:  192.168.2.1
 ```
 
-Die Default Gateways sind notwendig, damit die PCs Pakete an Geräte außerhalb ihres eigenen lokalen Netzwerkes senden können.
+Auch hier ist das Gateway die IP-Adresse vom lokalen Router.
 
 ---
 
-## 9. Statisches Routing
+## 6. Konfiguration R-Br1
 
-Nach der Konfiguration der Interfaces kennen die Router zunächst nur ihre direkt angeschlossenen Netzwerke.
+Zuerst wurde der Router in den privilegierten Modus versetzt.
 
-R-Br1 kennt:
+```cisco
+enable
+configure terminal
+```
+
+Danach wurde der Hostname gesetzt:
+
+```cisco
+hostname R-Br1
+```
+
+Anschließend wurde das Enable Passwort konfiguriert:
+
+```cisco
+enable secret class
+```
+
+Für Console und VTY wurde das Passwort `cisco` verwendet.
+
+```cisco
+line console 0
+password cisco
+login
+exit
+```
+
+```cisco
+line vty 0 4
+password cisco
+login
+exit
+```
+
+### Interface Fa0/0
+
+Das Interface Fa0/0 verbindet den Router mit dem LAN in Braunau.
+
+```cisco
+interface FastEthernet0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+```
+
+### Interface Fa0/1
+
+Fa0/1 verbindet R-Br1 mit R-Sd1.
+
+```cisco
+interface FastEthernet0/1
+ip address 10.0.0.1 255.255.255.252
+no shutdown
+exit
+```
+
+---
+
+## 7. Konfiguration R-Sd1
+
+Beim zweiten Router wurde fast das gleiche gemacht.
+
+```cisco
+enable
+configure terminal
+hostname R-Sd1
+```
+
+Danach wieder das Enable Passwort:
+
+```cisco
+enable secret class
+```
+
+Console Passwort:
+
+```cisco
+line console 0
+password cisco
+login
+exit
+```
+
+VTY Passwort:
+
+```cisco
+line vty 0 4
+password cisco
+login
+exit
+```
+
+### Interface Fa0/0
+
+```cisco
+interface FastEthernet0/0
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+exit
+```
+
+### Interface Fa0/1
+
+```cisco
+interface FastEthernet0/1
+ip address 10.0.0.2 255.255.255.252
+no shutdown
+exit
+```
+
+Danach wurde mit
+
+```cisco
+show ip interface brief
+```
+
+überprüft ob die Interfaces aktiv sind.
+
+Es sollte ungefähr so aussehen:
+
+```text
+FastEthernet0/0   192.168.2.1   up   up
+FastEthernet0/1   10.0.0.2      up   up
+```
+
+Wenn `up up` angezeigt wird, ist das Interface aktiv und die Verbindung sollte grundsätzlich funktionieren.
+
+---
+
+## 8. Statische Routen
+
+Da die beiden Router jeweils nur ihre direkt verbundenen Netzwerke kennen, mussten statische Routen gesetzt werden.
+
+R-Br1 kennt sonst nur:
 
 ```text
 192.168.1.0/24
@@ -350,66 +269,182 @@ R-Sd1 kennt:
 10.0.0.0/30
 ```
 
-Damit die beiden LANs miteinander kommunizieren können, müssen statische Routen eingerichtet werden.
-
-### Route auf R-Br1
-
-R-Br1 benötigt eine Route zum Netzwerk Schärding:
+Damit R-Br1 weiß, wie er nach Schärding kommt, wurde folgende Route gesetzt:
 
 ```cisco
 ip route 192.168.2.0 255.255.255.0 10.0.0.2
 ```
 
-Der Befehl bedeutet, dass Pakete für das Netzwerk `192.168.2.0/24` an den Next-Hop `10.0.0.2` weitergeleitet werden.
+Das bedeutet, Pakete für das Netz `192.168.2.0/24` werden an `10.0.0.2` weitergeleitet.
 
-`10.0.0.2` ist die WAN-Adresse von R-Sd1.
-
-### Route auf R-Sd1
-
-R-Sd1 benötigt eine Route zum Netzwerk Braunau:
+Auf R-Sd1 wurde die Rückroute gesetzt:
 
 ```cisco
 ip route 192.168.1.0 255.255.255.0 10.0.0.1
 ```
 
-Der Next-Hop `10.0.0.1` ist die WAN-Adresse von R-Br1.
-
-### Übersicht
-
-| Router | Zielnetz | Subnetzmaske | Next-Hop |
-|---|---|---|---|
-| R-Br1 | 192.168.2.0 | 255.255.255.0 | 10.0.0.2 |
-| R-Sd1 | 192.168.1.0 | 255.255.255.0 | 10.0.0.1 |
-
-Durch diese beiden Routen besitzen die Router nun einen Pfad zu allen Netzwerken der Topologie.
+Diese Route ist wichtig, da Pakete auch wieder zurück zu PC-A kommen müssen.
 
 ---
 
-## 10. Kontrolle der Interfaces
+## 9. Kontrolle der Routing Tabelle
 
-Zur Überprüfung der Routerinterfaces wurde folgender Befehl verwendet:
+Mit folgendem Befehl wurde die Routing Tabelle angezeigt:
+
+```cisco
+show ip route
+```
+
+Auf R-Br1 sollte unter anderem folgende Route vorhanden sein:
+
+```text
+S    192.168.2.0/24 via 10.0.0.2
+```
+
+Auf R-Sd1 sollte stehen:
+
+```text
+S    192.168.1.0/24 via 10.0.0.1
+```
+
+Das `S` steht für eine statische Route.
+
+---
+
+## 10. Konfiguration S-Br1
+
+Der Switch in Braunau bekam eine Management IP auf VLAN 1.
+
+```cisco
+enable
+configure terminal
+
+hostname S-Br1
+
+interface vlan 1
+ip address 192.168.1.2 255.255.255.0
+no shutdown
+exit
+```
+
+Danach wurde noch der Default Gateway eingestellt:
+
+```cisco
+ip default-gateway 192.168.1.1
+```
+
+Der Switch braucht das Gateway, wenn er mit Geräten aus einem anderen Netzwerk kommunizieren soll.
+
+---
+
+## 11. Konfiguration S-Sd1
+
+Beim Switch in Schärding wurde folgendes konfiguriert:
+
+```cisco
+enable
+configure terminal
+
+hostname S-Sd1
+
+interface vlan 1
+ip address 192.168.2.2 255.255.255.0
+no shutdown
+exit
+```
+
+Danach:
+
+```cisco
+ip default-gateway 192.168.2.1
+```
+
+---
+
+## 12. Test der Verbindung
+
+Nach der Konfiguration wurde die Verbindung zwischen den Geräten mit `ping` getestet.
+
+Von PC-A wurden nacheinander mehrere Geräte angepingt.
+
+### Test zu R-Br1
+
+```cmd
+ping 192.168.1.1
+```
+
+Der Ping war erfolgreich.
+
+### Test zu S-Br1
+
+```cmd
+ping 192.168.1.2
+```
+
+Der Ping war ebenfalls erfolgreich.
+
+### Test zum zweiten Router
+
+```cmd
+ping 10.0.0.2
+```
+
+Damit wurde überprüft, ob die Verbindung zwischen den Routern funktioniert.
+
+### Test zu R-Sd1
+
+```cmd
+ping 192.168.2.1
+```
+
+### Test zu S-Sd1
+
+```cmd
+ping 192.168.2.2
+```
+
+### Test zu PC-B
+
+```cmd
+ping 192.168.2.111
+```
+
+Dieser Test ist am wichtigsten, weil dadurch überprüft wird, ob die komplette Verbindung von Braunau bis Schärding funktioniert.
+
+Wenn die Antwort ungefähr so aussieht:
+
+```text
+Reply from 192.168.2.111
+Reply from 192.168.2.111
+Reply from 192.168.2.111
+Reply from 192.168.2.111
+```
+
+ist die Verbindung erfolgreich.
+
+---
+
+## 13. Fehlerbehebung
+
+Während der Konfiguration gab es teilweise das Problem, dass ein Ping nicht funktioniert hat.
+
+Ein möglicher Grund dafür war, dass ein Router Interface noch nicht aktiviert war.
+
+Mit
 
 ```cisco
 show ip interface brief
 ```
 
-Auf R-Br1 sollten unter anderem folgende Interfaces vorhanden sein:
+kann man kontrollieren ob die Interfaces aktiv sind.
+
+Wenn dort
 
 ```text
-FastEthernet0/0   192.168.1.1   up   up
-FastEthernet0/1   10.0.0.1      up   up
+administratively down
 ```
 
-Auf R-Sd1:
-
-```text
-FastEthernet0/0   192.168.2.1   up   up
-FastEthernet0/1   10.0.0.2      up   up
-```
-
-Der Zustand `up/up` zeigt, dass das Interface sowohl physisch als auch auf Protokollebene aktiv ist.
-
-Falls ein Interface als `administratively down` angezeigt wird, kann es mit
+steht, muss das Interface mit
 
 ```cisco
 no shutdown
@@ -417,100 +452,29 @@ no shutdown
 
 aktiviert werden.
 
----
+Außerdem muss bei den PCs der richtige Default Gateway eingetragen sein.
 
-## 11. Kontrolle der Routingtabellen
-
-Die Routingtabelle wurde mit folgendem Befehl kontrolliert:
-
-```cisco
-show ip route
-```
-
-### R-Br1
-
-Es sollten unter anderem folgende Netzwerke vorhanden sein:
+Bei PC-A:
 
 ```text
-C    192.168.1.0/24 is directly connected
-C    10.0.0.0/30 is directly connected
-S    192.168.2.0/24 [1/0] via 10.0.0.2
+192.168.1.1
 ```
 
-### R-Sd1
+Bei PC-B:
 
 ```text
-C    192.168.2.0/24 is directly connected
-C    10.0.0.0/30 is directly connected
-S    192.168.1.0/24 [1/0] via 10.0.0.1
+192.168.2.1
 ```
 
-Die Buchstaben am Anfang eines Routingeintrages geben an, wie die Route gelernt wurde.
-
-```text
-C = Connected
-S = Static
-```
+Ein weiterer möglicher Fehler ist, dass die statische Route auf einem der Router fehlt.
 
 ---
 
-## 12. Test der End-to-End-Konnektivität
+## 14. Speichern der Konfiguration
 
-Nach Abschluss der Konfiguration wurde die Verbindung zwischen den Geräten mit `ping` überprüft.
+Nachdem alles funktioniert hat, wurden die Router Konfigurationen gespeichert.
 
-Die Tests wurden von PC-A durchgeführt.
-
-### Router Braunau
-
-```cmd
-ping 192.168.1.1
-```
-
-**Ergebnis:** erfolgreich
-
-### Switch Braunau
-
-```cmd
-ping 192.168.1.2
-```
-
-**Ergebnis:** erfolgreich
-
-### Router Schärding
-
-```cmd
-ping 10.0.0.2
-```
-
-**Ergebnis:** erfolgreich
-
-### Switch Schärding
-
-```cmd
-ping 192.168.2.2
-```
-
-**Ergebnis:** erfolgreich
-
-### PC-B
-
-```cmd
-ping 192.168.2.111
-```
-
-**Ergebnis:** erfolgreich
-
-Damit konnte bestätigt werden, dass eine vollständige End-to-End-Verbindung zwischen den beiden Standorten vorhanden ist.
-
-> **Screenshot:** Hier Screenshot des erfolgreichen Pings von PC-A zu PC-B einfügen.
-
----
-
-## 13. Speichern der Konfiguration
-
-Damit die Routerkonfigurationen auch nach einem Neustart erhalten bleiben, wurden sie vom Running-Config in den Startup-Config gespeichert.
-
-Auf R-Br1 und R-Sd1 wurde folgender Befehl verwendet:
+Dafür wurde folgender Befehl verwendet:
 
 ```cisco
 copy running-config startup-config
@@ -522,102 +486,8 @@ Bei der Frage
 Destination filename [startup-config]?
 ```
 
-wurde mit Enter bestätigt.
+wurde einfach Enter gedrückt.
 
-Die gespeicherte Konfiguration kann anschließend mit
-
-```cisco
-show startup-config
-```
-
-kontrolliert werden.
+Dadurch bleibt die Konfiguration auch nach einem Neustart erhalten.
 
 ---
-
-## 14. Routerkonfigurationen
-
-### R-Br1
-
-```cisco
-hostname R-Br1
-
-enable secret class
-
-interface FastEthernet0/0
- description LAN-Braunau
- ip address 192.168.1.1 255.255.255.0
- no shutdown
-
-interface FastEthernet0/1
- description WAN-zu-R-Sd1
- ip address 10.0.0.1 255.255.255.252
- no shutdown
-
-ip route 192.168.2.0 255.255.255.0 10.0.0.2
-
-line console 0
- password cisco
- login
-
-line vty 0 4
- password cisco
- login
-```
-
-### R-Sd1
-
-```cisco
-hostname R-Sd1
-
-enable secret class
-
-interface FastEthernet0/0
- description LAN-Schaerding
- ip address 192.168.2.1 255.255.255.0
- no shutdown
-
-interface FastEthernet0/1
- description WAN-zu-R-Br1
- ip address 10.0.0.2 255.255.255.252
- no shutdown
-
-ip route 192.168.1.0 255.255.255.0 10.0.0.1
-
-line console 0
- password cisco
- login
-
-line vty 0 4
- password cisco
- login
-```
-
----
-
-## 15. Fazit
-
-In dieser Übung wurden zwei getrennte IPv4-Netzwerke über eine WAN-Verbindung miteinander verbunden.
-
-Zunächst wurden die Router-, Switch- und PC-Interfaces mit den entsprechenden IPv4-Adressen konfiguriert. Anschließend wurden auf beiden Routern statische Routen eingerichtet.
-
-Die statischen Routen waren notwendig, da jeder Router ohne Routinginformationen nur seine direkt angeschlossenen Netzwerke kennt.
-
-Durch die Route
-
-```cisco
-ip route 192.168.2.0 255.255.255.0 10.0.0.2
-```
-
-kann R-Br1 das Netzwerk in Schärding erreichen.
-
-Durch
-
-```cisco
-ip route 192.168.1.0 255.255.255.0 10.0.0.1
-```
-
-kann R-Sd1 das Netzwerk in Braunau erreichen.
-
-Abschließend wurde die Konnektivität mit mehreren Ping-Tests überprüft. Die Tests zwischen PC-A und PC-B sowie den dazwischenliegenden Netzwerkgeräten waren erfolgreich.
-
-Somit konnte die Standortvernetzung erfolgreich hergestellt werden.
