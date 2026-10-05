@@ -3,7 +3,8 @@
 **Klasse:** 4AHITS  
 **Thema:** Standortvernetzung von 2 Standorten  
 **Verfasser:** Denis Velic  
-**Datum:** 28.09.2008 
+**Datum:** 28.09.2026
+
 
 ---
 
