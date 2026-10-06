@@ -17,6 +17,20 @@
 
 Als Basis wird das fertige Paket Tracer file von der letzen Übung mit IPv4 benutzt.
 
+In dieser Übung war die Aufgabe, zwei verschiedene Standorte über zwei Router miteinander zu verbinden jedoch jetzt mit IPv6.
+
+Die beiden Standorte sind:
+
+- Braunau
+- Schärding
+
+An jedem Standort gibt es jeweils einen PC, einen Switch und einen Router.  
+Die beiden Router werden direkt miteinander verbunden.
+
+Das Ziel war, dass sich am Ende alle Geräte untereinander erreichen können und besonders PC-A zu PC-B pingen kann.
+
+Die verwendete Topologie sieht ungefähr so aus:
+
 ### Topologie:
 
 <img width="1406" height="384" alt="image" src="https://github.com/user-attachments/assets/9fdec988-7123-499c-8db2-260514aa94fe" />
