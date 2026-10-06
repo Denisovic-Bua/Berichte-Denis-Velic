@@ -17,7 +17,7 @@
 
 Als Basis wird das fertige Paket Tracer file von der letzen Übung mit IPv4 benutzt.
 
-### Typologie
+### Typologie:
 
 <img width="1406" height="384" alt="image" src="https://github.com/user-attachments/assets/9fdec988-7123-499c-8db2-260514aa94fe" />
 
