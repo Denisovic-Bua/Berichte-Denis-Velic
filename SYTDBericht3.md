@@ -44,8 +44,21 @@ Die verwendete Topologie sieht ungefähr so aus:
 ## S-Br1 Konfigurieren
 <img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/63179e1b-cde2-4923-8988-1140f1a04ee0" />
 
+Die IPv6 Commands werden bei den Switches nicht direkt funktionieren, dann muss man das eingeben in die shell:
+
+```sh
+enable
+configure terminal
+sdm prefer dual-ipv4-and-ipv6 default
+end
+copy running-config startup-config
+reload
+```
+
+
 ## S-Sd1 Konfigurieren
 <img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/17c92609-7354-4cc8-b855-fc05bfe199ec" />
+
 Die IPv6 Commands werden bei den Switches nicht direkt funktionieren, dann muss man das eingeben in die shell:
 
 ```sh
