@@ -26,7 +26,8 @@
 **Aufgabe 2:**
 <img width="643" height="513" alt="image" src="https://github.com/user-attachments/assets/05737052-9c2a-42d1-a5bf-9ff3e74972b3" />
 
-<img width="643" height="513" alt="image" src="https://github.com/user-attachments/assets/7bfb9778-352a-411c-9dd3-11385aee14c9" />
+<img width="1736" height="1960" alt="image" src="https://github.com/user-attachments/assets/ba9e8c0f-c563-4899-88c0-1d05f2f54881" />
+
 
 
 
