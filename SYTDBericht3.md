@@ -35,6 +35,36 @@ Die verwendete Topologie sieht ungefähr so aus:
 
 <img width="1406" height="384" alt="image" src="https://github.com/user-attachments/assets/9fdec988-7123-499c-8db2-260514aa94fe" />
 
+## R-Br1 Konfigurieren
+<img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/45fe0cfd-8a90-4765-b354-50dbe962b103" />
+
+## R-Sd1 Konfigurieren
+<img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/6cc40e4c-c1bd-4a18-853d-5b2752206285" />
+
+## S-Br1 Konfigurieren
+<img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/63179e1b-cde2-4923-8988-1140f1a04ee0" />
+
+## S-Sd1 Konfigurieren
+<img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/17c92609-7354-4cc8-b855-fc05bfe199ec" />
+- Die ipv6 commands haben nicht funktioniert dann muss man 
+```sh
+enable
+configure terminal
+sdm prefer dual-ipv4-and-ipv6 default
+end
+copy running-config startup-config
+reload
+```
+
+## R-Br1 Check
+<img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/933b7f62-292e-4d06-950a-07a75881efde" />
+
+
+
+
+
+
+
 
 
 
