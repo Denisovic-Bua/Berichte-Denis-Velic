@@ -33,6 +33,13 @@
 **Aufgabe 3:**
 <img width="1736" height="1960" alt="image" src="https://github.com/user-attachments/assets/90361589-c3a5-4c11-9377-1a5d026ae811" />
 
+**Aufgabe 4:** 
+<img width="1736" height="1960" alt="image" src="https://github.com/user-attachments/assets/67d96cbd-4c56-4c69-8597-fefbc54c7120" />
+
+<img width="643" height="513" alt="image" src="https://github.com/user-attachments/assets/edfb914d-3da5-424a-b273-60b1b614b5bc" />
+
+
+
 
 
 
