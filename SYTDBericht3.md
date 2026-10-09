@@ -46,7 +46,8 @@ Die verwendete Topologie sieht ungefähr so aus:
 
 ## S-Sd1 Konfigurieren
 <img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/17c92609-7354-4cc8-b855-fc05bfe199ec" />
-- Die ipv6 commands haben nicht funktioniert dann muss man 
+Die IPv6 Commands werden bei den Switches nicht direkt funktionieren, dann muss man das eingeben in die shell:
+
 ```sh
 enable
 configure terminal
