@@ -30,6 +30,10 @@
 
 <img width="1736" height="1960" alt="image" src="https://github.com/user-attachments/assets/ba9e8c0f-c563-4899-88c0-1d05f2f54881" />
 
+**Aufgabe 3:**
+<img width="1736" height="1960" alt="image" src="https://github.com/user-attachments/assets/90361589-c3a5-4c11-9377-1a5d026ae811" />
+
+
 
 
 
