@@ -5,7 +5,7 @@
 ![Datum](https://img.shields.io/badge/Datum-09.10.2026-darkblue?style=for-the-badge&logo=googlecalendar&logoColor=white)
 
 ## 👤 Basisinformationen
-| **Thema** | [Bash Scripting & Schleife](https://www.franzmatejka.at/htl/doc/SYTB_3/24_schleifen_ue.html) |
+| **Thema** | [Holiday Hack](https://2025.holidayhackchallenge.com/) |
 
 | **Fach** | ITP2I |
 
