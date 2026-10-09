@@ -19,7 +19,7 @@
 <img width="1736" height="1960" alt="image" src="https://github.com/user-attachments/assets/5ad63b1e-e468-426a-b97d-08fa71e6bce2" />
 
 - Domain steht schon direkt in der Aufgabestellung
-- Request Type ist **A**, weil in der Aufgabenstellung steht ´IPv4 DNS Request´. Ein A-Record fragt nach einer IPv4-Adresse. ´AAAA´ wäre für IPv6
+- Request Type ist **A**, weil in der Aufgabenstellung steht `IPv4 DNS Request`. Ein A-Record fragt nach einer IPv4-Adresse. `AAAA` wäre für IPv6
 
 
 ---
