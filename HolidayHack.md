@@ -13,6 +13,8 @@
 
 
 ## Ertes Terminal am Anfang:
+<img width="3024" height="1964" alt="image" src="https://github.com/user-attachments/assets/cc731188-74ca-4ce5-a1a0-6103b39f628c" />
+
 
 ## Jared Visual Networking:
 **Aufgabe 1:**
