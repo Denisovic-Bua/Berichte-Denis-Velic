@@ -41,6 +41,11 @@
 **Done:**
 <img width="1430" height="758" alt="image" src="https://github.com/user-attachments/assets/f17984a4-abac-4c71-851f-2a94a4190413" />
 
+## Yori Kvitchko
+
+<img width="2756" height="1486" alt="image" src="https://github.com/user-attachments/assets/612bcfb9-0bf6-4a70-8d75-90ea867fd825" />
+
+`curl` verbindet sich mit dem Server. `-k` ignoriert Zertifikatsfehler. `0.0.0.0:12321` ist Adresse und Port.
 
 
 
