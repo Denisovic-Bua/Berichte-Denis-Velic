@@ -47,6 +47,10 @@
 
 `curl` verbindet sich mit dem Server. `-k` ignoriert Zertifikatsfehler. `0.0.0.0:12321` ist Adresse und Port.
 
+## Storage Secrets:
+<img width="3024" height="1898" alt="image" src="https://github.com/user-attachments/assets/429bfd06-39fd-4c5b-9563-4921fa68d70a" />
+
+
 
 
 
