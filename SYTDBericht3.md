@@ -73,6 +73,21 @@ reload
 ## R-Br1 Check
 <img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/933b7f62-292e-4d06-950a-07a75881efde" />
 
+## PC-A IP Konfiguration
+<img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/1084e219-7626-430a-b15e-2d563fb6dff4" />
+
+## PC-B IP Konfiguraiton
+<img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/0b5f6d0b-7266-4ec5-b037-d7dced54bb40" />
+
+## PC-A Ping Check
+<img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/29fe56ba-c187-4fa6-bce8-7f0c28eb7597" />
+
+## PC-B Ping Checks
+<img width="1736" height="1954" alt="image" src="https://github.com/user-attachments/assets/5037a570-aeeb-4672-955e-876a3bf866c1" />
+
+
+
+
 
 
 
