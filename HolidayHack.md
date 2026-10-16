@@ -55,6 +55,39 @@
 ## Intro to NMAP
 <img width="3024" height="1898" alt="image" src="https://github.com/user-attachments/assets/4f36d17b-53e4-4f5b-9686-1f2bf798046f" />
 
+## It's all about defang
+ 
+Hier muss man mit RegEx IOCs finden also Emails, Domains, IPs, URLs
+ 
+Um alle Domains herauszusuchen benutze ich:
+```
+\b(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}\b
+```
+ 
+Um alle IP Addressen herauszusuchen benutze ich:
+```
+\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b
+```
+ 
+Um alle URLs herauszusuchen benutze ich:
+```
+\bhttps?://(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}(?::\d+)?(?:/[^\s]*)?\b
+```
+ 
+Um alle Email Addressen herauszusuchen benutze ich:
+```
+\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b
+```
+ 
+ 
+Um all die herausgesuchten IOCs zu defangen benutze ich:
+```
+s/\./[.]/g; s/@/[@]/g; s/http/hxxp/g; s/:\//[://]/g;
+```
+
+<img width="1467" height="1312" alt="Bild" src="https://github.com/user-attachments/assets/8918b671-e162-450d-95fc-fcb6285af97b" />
+
+
 
 
 
