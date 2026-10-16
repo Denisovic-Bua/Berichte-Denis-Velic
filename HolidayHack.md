@@ -6,7 +6,9 @@
 
 ## 👤 Basisinformationen
 | **Thema** | [Holiday Hack](https://2025.holidayhackchallenge.com/) |
+
 | **Team** | Denis Velic & Elia Albenberger |
+
 | **Fach** | ITP2I |
 
 ---
