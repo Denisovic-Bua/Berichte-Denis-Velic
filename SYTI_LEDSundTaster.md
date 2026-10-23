@@ -24,10 +24,6 @@ leuchtet LED 0 usw.
 
 ```sh
 
-#include <Arduino.h>
-
-
-
 void setup() {
 DDRF=0xFF;
 
@@ -44,3 +40,22 @@ PORTF = ~PINK;
 }
 
 ```
+
+### Erklärung:
+Der Code liest quasi den Zustand der acht Taster am Port K ein und steuert damit direkt die LEDs am Port F, weil die Taster beim Drücken das Signal auf Masse ziehen (Low), wird das eingelesene Byte invertiert, damit die LED beim Tastendruck auch ein HIGH-Signal bekommt und leuchtet.
+
+---
+
+
+## Aufgabe 2:
+
+### Aufgabenstellung:
+Modifizierung der vorherigen Aufgabe: Der Zustand der Taste 0 wird durch LED 7 angezeigt, der
+Zustand von Taste 1 von LED 6 usw. => soll auch bei mehreren Tastendrücken gleichzeitig
+funktionieren!
+
+### Lösung:
+
+```sh
+
+``
