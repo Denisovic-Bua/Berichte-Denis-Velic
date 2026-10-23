@@ -31,6 +31,16 @@ Der Flipper Zero ist ein kleines Gerät, mit dem man verschiedene Funk- und Elek
 
 Der Flipper Zero kann nicht einfach jedes Schloss oder Gerät öffnen. Manche Karten und Fernbedienungen sind verschlüsselt oder verwenden wechselnde Codes. Dann funktioniert das Nachbilden nicht einfach so. BadUSB sollte man nur an eigenen Geräten oder mit Erlaubnis verwenden. Das gilt auch fürs Testen von Karten und Funksignalen.
 
+
+## Was haben wir alles gemacht:
+- Als erstes installiert man sich die Flipper Zero app runter indem man auf den Flipper in den Files reingeht, dann auf App und dann auf die dementsprechende Version also Windows/Linux/Max. Davor muss man aber noch den Flipper an dem PC anstecken
+- Man kann von GitHub verschiedene BadUSB programme runterladen, die man dann ausführen kann wie ein RubberDucky. Der Flipper hat selber schon paar selber installiert.
+- Wir haben auch probiert den Schulbeamer an und auszuschalten und es hat funktioniert mit der Infrarot funktion.
+- Wir haben Online vorgefertigte Programme draufgeladen von FlipperLab wie NFCtagMaker einmal hat es kurz funktioniert aber ist irgendwie nicht richtig gegangen nur hin und wieder
+- Wir haben auch Viktor und Enrico damit ein bisschen genervt mit der Bluetooth funktion oder der BadUSB funktion
+- Nicht jede App oder Code funktioniert für den Flipper
+
+
 ## Fazit
 
 Woa lustig
