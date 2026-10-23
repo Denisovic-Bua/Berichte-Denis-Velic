@@ -5,7 +5,8 @@
 ![Datum](https://img.shields.io/badge/Datum-23.10.2026-darkblue?style=for-the-badge&logo=googlecalendar&logoColor=white)
 
 ## 👤 Basisinformationen
-| **Thema** | [LEDs und Taster](https://github.com/HTL-Braunau-probst/ITPI-4/blob/main/0305_FlipperZero.md) |
+| **Thema** | [LEDs und Taster](https://github.com/user-attachments/files/33861108/Ubungsaufgaben.LEDs.und.Taster.pdf)
+) |
 
 | **Name** | Denis Velic |
 
