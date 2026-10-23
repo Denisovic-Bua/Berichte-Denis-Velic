@@ -79,4 +79,8 @@ ledZustand = 0;
 
 ```
 
+### Erklärung:
+
+das Programm schaut beim if ob eine taste gedrückt wird das wird mit `&` verknüft und prüft es dann. in der if wird einfach mit `|` verglichen damit es gesetzt wird und rechnet minus dem index. somit wenn ich taste `0` drücke rechnet er `7-0`und dann wird das 7. Led eingeschaltet
+
 
