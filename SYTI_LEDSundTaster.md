@@ -13,3 +13,34 @@
 | **Fach** | SYTI |
 
 ---
+
+## Aufgabe 1:
+
+### Aufgabenstellung:
+Der Zustand der Tasten soll durch die LED-Reihe angezeigt werden: Solange Taste 0 gedrückt ist,
+leuchtet LED 0 usw.
+
+### Lösung:
+
+```sh
+
+#include <Arduino.h>
+
+
+
+void setup() {
+DDRF=0xFF;
+
+DDRK=0x00;
+
+PORTK=0xFF;
+
+}
+
+void loop() {
+
+PORTF = ~PINK;
+
+}
+
+```
