@@ -44,8 +44,6 @@ PORTF = ~PINK;
 ### Erklärung:
 Der Code liest quasi den Zustand der acht Taster am Port K ein und steuert damit direkt die LEDs am Port F, weil die Taster beim Drücken das Signal auf Masse ziehen (Low), wird das eingelesene Byte invertiert, damit die LED beim Tastendruck auch ein HIGH-Signal bekommt und leuchtet.
 
----
-
 
 ## Aufgabe 2:
 
