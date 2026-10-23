@@ -83,4 +83,15 @@ ledZustand = 0;
 
 das Programm schaut beim if ob eine taste gedrückt wird das wird mit `&` verknüft und prüft es dann. in der if wird einfach mit `|` verglichen damit es gesetzt wird und rechnet minus dem index. somit wenn ich taste `0` drücke rechnet er `7-0`und dann wird das 7. Led eingeschaltet
 
+## Aufgabe 3:
+Ausgabe von LED-Mustern: Solange Taste 0 gedrückt wird, wird das LED-Muster Nr. 0 ausgegeben,
+solange Taste 1 gedrückt wird, LED-Muster 1, usw. (z. B. Muster 0 = 00000000, Muster 1 = 10000000,
+… Muster 7 = 11111111)
+
+## Lösung:
+
+```sh
+
+```
+
 
