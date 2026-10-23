@@ -37,7 +37,7 @@ Der Flipper Zero kann nicht einfach jedes Schloss oder Gerät öffnen. Manche Ka
 - Man kann von GitHub verschiedene BadUSB programme runterladen, die man dann ausführen kann wie ein RubberDucky. Der Flipper hat selber schon paar selber installiert.
 - Wir haben auch probiert den Schulbeamer an und auszuschalten und es hat funktioniert mit der Infrarot funktion.
 - Wir haben Online vorgefertigte Programme draufgeladen von FlipperLab wie NFCtagMaker einmal hat es kurz funktioniert aber ist irgendwie nicht richtig gegangen nur hin und wieder
-- Wir haben auch Viktor und Enrico damit ein bisschen genervt mit der Bluetooth funktion oder der BadUSB funktion
+- Wir haben auch Viktor und Enrico damit ein bisschen genervt mit der Bluetooth funktion indem man sein PC damit fernsteuert also die Tastatur und Maus nutz oder der BadUSB funktion
 - Nicht jede App oder Code funktioniert für den Flipper
 
 
