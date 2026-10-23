@@ -41,10 +41,6 @@ PORTF = ~PINK;
 
 ```
 
-### Erklärung:
-Der Code liest quasi den Zustand der acht Taster am Port K ein und steuert damit direkt die LEDs am Port F, weil die Taster beim Drücken das Signal auf Masse ziehen (Low), wird das eingelesene Byte invertiert, damit die LED beim Tastendruck auch ein HIGH-Signal bekommt und leuchtet.
-
-
 ## Aufgabe 2:
 
 ### Aufgabenstellung:
@@ -56,4 +52,31 @@ funktionieren!
 
 ```sh
 
-``
+  byte tasterZustand;
+  byte ledZustand;
+
+void setup() {
+  DDRF = 0xFF;  
+  DDRK = 0x00;  
+  PORTK = 0xFF; 
+    
+}
+
+void loop() {
+
+tasterZustand =  ~PINK;
+ledZustand = 0;
+
+ 
+  for (int i = 0; i < 8; i++) {
+    if (tasterZustand & (1 << i)) {
+      ledZustand |= (1 << (7 - i));
+    }
+  }
+
+  PORTF = ledZustand; 
+}
+
+```
+
+
