@@ -21,7 +21,7 @@ Der Flipper Zero ist ein kleines Gerät, mit dem man verschiedene Funk- und Elek
 ## Was wir am meisten verwendet haben:
 - **BadUSB:** Dabei wird der Flipper Zero am Computer wie eine Tastatur erkannt. Er kann dann vorher programmierte Eingaben machen. man kann theoretisch malicous code dort drauf laden und wird dann automatisch ausgeführt.
 
-- **NFC:** Damit können wir unterstützte NFC-Karten und Tags auslesen und die Daten speichern. Ob eine Karte auch nachgebildet werden kann, hängt davon ab, wie sie aufgebaut und geschützt ist.#
+- **NFC:** Damit können wir unterstützte NFC-Karten und Tags auslesen und die Daten speichern. Ob eine Karte auch nachgebildet werden kann, hängt davon ab, wie sie aufgebaut und geschützt ist.
 
 - **Bluetooth:** Über Bluetooth können wir den Flipper Zero mit einem Handy oder Computer verbinden. Man kann ihn damit zum Beispiel fernsteuern.
 
