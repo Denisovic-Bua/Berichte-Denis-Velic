@@ -50,3 +50,21 @@ Gegenargument: Vergleichbarkeit und faire Benotung leiden
 Wenn jeder im eigenen Tempo lernt oder eigene Themenschwerpunkte setzt, lassen sich klassische, standardisierte Schularbeiten kaum noch schreiben. Die Notengebung wird extrem schwierig und subjektiv.
 
 ⚬ Warum Mitbestimmung trotzdem besser ist: Die moderne Arbeitswelt fordert ohnehin keine Einheitslösungen. Die Bewertung kann von sturem Faktenabfragen auf kompetenzbasierte Formate umgestellt werden (z. B. Projektarbeiten, Präsentationen oder Portfolios). Das ist viel gerechter, weil es die individuellen Stärken bewertet und die echte Berufswelt abbildet.
+
+
+
+
+
+
+
+Es geht bei der Mitbestimmung nicht darum, dass ein einzelner Schüler alles diktiert oder die Klasse den kompletten gesetzlichen Lehrplan über Bord wirft. Das Ganze funktioniert in der Praxis durch strukturierte Prozesse – ähnlich wie in einem Unternehmen.
+
+Hier sind die gängigsten Modelle, wie so etwas in der Klasse konkret bestimmt wird:
+
+⚬ Das Baukasten-Prinzip (Auswahl aus Optionen): Die Lehrkraft gibt das grobe Ziel vor, da der Lehrplan erfüllt werden muss (z. B. "Wir müssen dieses Semester IT-Security-Konzepte behandeln"). Die Lehrkraft stellt dann zwei oder drei methodische Wege vor, und die Klasse stimmt ab, wie gelernt wird – etwa ob durch ein praktisches Projekt, eine Präsentation oder klassischen Unterricht.
+⚬ Demokratischer Mehrheitsbeschluss: Bei organisatorischen Fragen wie Deadlines für Abgaben, der Reihenfolge der Themenblöcke oder Prüfungsterminen stimmt die gesamte Klasse ab. Das kann offen per Handzeichen oder anonym passieren. Die Mehrheit entscheidet, und alle müssen sich an diesen Beschluss halten.
+⚬ Verhandlung über die Klassensprecher: Die Klassensprecher fungieren als Projektmanager der Klasse. Sie holen im Vorfeld ein Meinungsbild ein, filtern extreme Ansichten heraus und verhandeln dann stellvertretend auf Augenhöhe mit der Lehrkraft über Stoffmengen oder Zeitpläne.
+⚬ Individuelle Lernverträge (auf Gruppenebene): Gerade bei Projektarbeiten bestimmt nicht die ganze Klasse für alle, sondern jede Arbeitsgruppe definiert ihre eigenen Meilensteine. Die Gruppe legt fest, wer was bis wann macht, und lässt diesen "Vertrag" von der Lehrkraft absegnen.
+
+Wer hat das letzte Wort?
+Die Lehrkraft wandelt sich vom reinen "Bestimmer" zum Moderator und Projektleiter. Sie hat ein Veto-Recht, das aber nur gezogen wird, wenn die Vorschläge der Klasse völlig unrealistisch sind (z. B. "Wir schreiben gar keine Tests mehr") oder den gesetzlichen Lehrplan massiv verletzen. Ansonsten gilt der gemeinsam ausgehandelte Kompromiss.
